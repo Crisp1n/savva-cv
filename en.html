@@ -3,92 +3,168 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Savva Zyrianov — Digital Systems &amp; Automation</title>
-<meta name="description" content="Operations manager moving into digital systems, technical support and automation. Open to remote work worldwide.">
+<title>Savva Zyrianov — Technical Support · Linux · Automation</title>
+<meta name="description" content="Technical Support Specialist: Tier 1 support, POS systems, Windows, Linux, AI tools. Open to remote work worldwide.">
 <style>
-  :root { --bg:#fff; --fg:#1d2430; --muted:#5b6574; --line:#e3e7ee; --accent:#1f5fbf; --card:#f6f8fb; }
+  :root { --bg:#f4f6fa; --paper:#fff; --fg:#1d2430; --muted:#5b6574; --line:#e3e7ee; --accent:#1f5fbf; --soft:#eaf1fc; }
   @media (prefers-color-scheme: dark) {
-    :root { --bg:#12161c; --fg:#e8ecf2; --muted:#9aa5b5; --line:#262d38; --accent:#6ea6ff; --card:#1a2029; }
+    :root { --bg:#0e1217; --paper:#161b22; --fg:#e8ecf2; --muted:#9aa5b5; --line:#262d38; --accent:#6ea6ff; --soft:#1b2636; }
   }
   * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
-  main { max-width:760px; margin:0 auto; padding:48px 16px 64px; }
-  h1 { font-size:2rem; margin:0 0 4px; }
-  .role { color:var(--accent); font-weight:600; margin:0 0 12px; }
-  .meta { color:var(--muted); margin:0 0 8px; }
-  .meta a { color:var(--accent); text-decoration:none; }
-  .meta a:hover { text-decoration:underline; }
-  h2 { font-size:1.05rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:6px; margin:36px 0 14px; }
-  h3 { font-size:1.05rem; margin:18px 0 2px; }
-  .when { color:var(--muted); font-size:.92rem; margin:0 0 6px; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width:1040px; margin:0 auto; padding:40px 16px 64px; }
+
+  header { background:var(--paper); border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:14px; padding:28px 32px; }
+  h1 { font-size:2.1rem; line-height:1.2; margin:0; letter-spacing:.01em; }
+  .role { color:var(--accent); font-weight:700; font-size:1.1rem; margin:6px 0 10px; text-transform:uppercase; letter-spacing:.04em; }
+  .meta { color:var(--muted); margin:0; }
+  .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; align-items:center; }
+  .btn { padding:9px 18px; border-radius:8px; background:var(--accent); color:#fff; font-weight:600; }
+  .btn:hover { text-decoration:none; opacity:.9; }
+  .chip { padding:8px 14px; border-radius:8px; border:1px solid var(--line); color:var(--fg); }
+  .chip:hover { border-color:var(--accent); text-decoration:none; }
+
+  .facts { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:16px 0; }
+  .fact { background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  .fact b { display:block; font-size:1.6rem; color:var(--accent); line-height:1.2; }
+  .fact span { color:var(--muted); font-size:.9rem; }
+
+  .cols { display:grid; grid-template-columns:1fr 320px; gap:16px; align-items:start; }
+  section { background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:22px 26px; margin-bottom:16px; }
+  h2 { font-size:1.05rem; color:var(--accent); margin:0 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+  p { margin:0 0 10px; }
+  .lead b { color:var(--fg); }
+  .block { border-left:3px solid var(--accent); background:var(--soft); border-radius:0 10px 10px 0; padding:10px 14px; margin:10px 0 0; }
+  .block h4 { margin:0 0 4px; font-size:1rem; color:var(--accent); }
+  .block ul { margin:0; padding-left:18px; }
+  .block li { margin:4px 0; }
+  .block li::marker { color:var(--accent); }
+
+  .job { position:relative; padding-left:20px; margin-bottom:18px; }
+  .job:last-child { margin-bottom:0; }
+  .job::before { content:""; position:absolute; left:0; top:8px; width:9px; height:9px; border-radius:50%; background:var(--accent); }
+  .job::after { content:""; position:absolute; left:4px; top:22px; bottom:-14px; width:1px; background:var(--line); }
+  .job:last-child::after { display:none; }
+  .job-head { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  h3 { font-size:1.08rem; margin:0; }
+  .when { color:var(--muted); font-size:.92rem; white-space:nowrap; }
+  .sub { color:var(--muted); font-style:italic; font-size:.95rem; margin:0 0 6px; }
   ul { margin:6px 0 0; padding-left:20px; }
   li { margin:3px 0; }
-  .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 14px; }
-  .card b { display:block; font-size:.9rem; color:var(--muted); margin-bottom:2px; }
-  .btn { display:inline-block; margin-top:14px; padding:8px 16px; border-radius:8px; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; }
-  .lang { margin-left:12px; color:var(--accent); text-decoration:none; }
-  ul.summary { list-style:none; padding:0; margin:12px 0 0; }
-  ul.summary li { margin:0 0 8px; padding:10px 14px; background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:8px; }
-  @media (max-width:560px) { .grid { grid-template-columns:1fr; } h1 { font-size:1.6rem; } }
+
+  .sk { margin-bottom:12px; }
+  .sk:last-child { margin-bottom:0; }
+  .sk b { display:block; font-size:.9rem; margin-bottom:5px; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tags span { background:var(--soft); color:var(--fg); border-radius:6px; padding:2px 9px; font-size:.86rem; }
+  .side p { font-size:.95rem; }
+
+  @media (max-width:860px) { .cols { grid-template-columns:1fr; } .facts { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px) { header, section { padding:18px; } h1 { font-size:1.6rem; } }
 </style>
 </head>
 <body>
-<main>
-  <h1>Savva Zyrianov</h1>
-  <p class="role">Digital Systems &amp; Automation Specialist</p>
-  <p class="meta">Open to remote work worldwide · any time zone, night shifts OK · open to relocation</p>
-  <p class="meta"><a href="mailto:savchik125@gmail.com">savchik125@gmail.com</a> · <a href="https://t.me/Crispln">t.me/Crispln</a></p>
-  <a class="btn" href="CV_Zyrianov_Savva_EN.pdf">Download CV (PDF)</a> <a class="lang" href="./">Русская версия</a>
+<div class="wrap">
+  <header>
+    <h1>Savva Zyrianov</h1>
+    <p class="role">Technical Support · Linux · Automation</p>
+    <p class="meta">Open to remote work worldwide · full-time or part-time · open to relocation and occasional business trips</p>
+    <div class="actions">
+      <a class="btn" href="CV_Zyrianov_Savva_EN.pdf">Download CV (PDF)</a>
+      <a class="chip" href="mailto:savchik125@gmail.com">savchik125@gmail.com</a>
+      <a class="chip" href="https://t.me/Crispln">Telegram</a>
+      <a class="chip" href="./">Русская версия</a>
+    </div>
+  </header>
 
-  <h2>Summary</h2>
-  <p>Operations manager moving into digital systems: 5+ years leading People, Production and Service at a «Vkusno — i tochka» restaurant (Deputy Director for General Affairs, staff of 80).</p>
-  <ul class="summary">
-    <li><b>Results.</b> Automated bonus calculation and staffing; cut 90-day turnover by 28%; delivered 5–10% revenue plan overperformance with about 10% fewer staff hours; passed every audit first time; monthly guest CSAT 89%+.</li>
-    <li><b>Systems &amp; support.</b> Hands-on with Excel, Google Sheets, Bitrix24, Diadoc, HR Oracle, 1C; first-line technical support, including POS systems (chat, phone, e-mail).</li>
-    <li><b>AI, servers &amp; networking.</b> Experience with AI tools (Claude Code, Cursor, LLM assistants), local generative AI and LLMs (Ollama, Local API), and basic prompt engineering; Linux servers (Docker, SSH) and panel-based setups; basic network infrastructure setup: local network, home server, NAS, Samba, and a cascade of several servers for VPN (3x-ui, WireGuard, VLESS, iptables, nginx); basic SQL (PostgreSQL, SQLite); basic HTML and XML.</li>
-    <li><b>Goal.</b> A remote role in digital systems, automation, data and AI.</li>
-  </ul>
-
-  <h2>Work Experience</h2>
-  <h3>Kontur</h3>
-  <p class="when">First-Line Technical Support Specialist · chat, phone, e-mail · June 2025 — Nov. 2025 (6 months)</p>
-  <ul>
-    <li>Supported users in working with POS systems</li>
-    <li>Advised users and handled requests across three channels: chat, phone, e-mail</li>
-    <li>Diagnosed and resolved technical issues at first line (troubleshooting)</li>
-  </ul>
-
-  <h3>Deputy Director for General Affairs — Vkusno — i tochka</h3>
-  <p class="when">Restaurant chain, Moscow · July 2019 — Feb. 2025</p>
-  <ul>
-    <li>5–10% revenue plan overperformance while cutting staff hours by about 10% through optimised role responsibilities</li>
-    <li>Reduced 90-day turnover by 28% (2024) and overall turnover by 17% vs. 2023</li>
-    <li>Automated bonus calculation and per-employee data upload from QSRAnalyze in Excel (Power Query), in line with the Labour Code of the RF (previously manual)</li>
-    <li>Automated shift staffing-demand calculation and position allocation; scheduling for a team of 80</li>
-    <li>Weekly planning of order count and average check with 87% accuracy</li>
-    <li>Proposed improvements to the new-employee training system — accepted at the central level</li>
-    <li>HR onboarding in HR Oracle, supplier invoices in Diadoc, contracts and invoices in 1C</li>
-    <li>Passed all audits and inspections first time with 85%+; monthly guest CSAT 89% or higher</li>
-  </ul>
-
-  <h2>Skills</h2>
-  <div class="grid">
-    <div class="card"><b>Support</b>POS systems user support, troubleshooting, chat / phone / e-mail; Windows: installation, setup, diagnostics, system and data recovery, PowerShell</div>
-    <div class="card"><b>Business systems</b>Bitrix24 CRM, Diadoc, HR Oracle, 1C</div>
-    <div class="card"><b>AI</b>Claude Code, Cursor, LLM assistants, local generative AI and LLMs (Ollama, Local API); prompt engineering basics</div>
-    <div class="card"><b>Linux (Ubuntu 22.04, 24.04)</b>Docker, nginx, iptables, WireGuard, VLESS, SSH</div>
-    <div class="card"><b>Office &amp; data</b>Excel (Power Query), Google Sheets, Word; SQL basics (SQLite, PostgreSQL)</div>
-    <div class="card"><b>Infrastructure</b>Home server, NAS, Samba, cascade of several servers under VPN; network basics</div>
-    <div class="card"><b>Web &amp; code</b>Basic HTML, XML, Python; working with APIs</div>
+  <div class="facts">
+    <div class="fact"><b>6 months</b><span>Tier 1 technical support</span></div>
+    <div class="fact"><b>5+ years</b><span>Deputy Director, team of 80</span></div>
+    <div class="fact"><b>89%+</b><span>customer CSAT</span></div>
+    <div class="fact"><b>+5–10%</b><span>revenue plan exceeded</span></div>
   </div>
 
-  <h2>Education &amp; Languages</h2>
-  <ul>
-    <li><b>Udmurt State Agrarian University</b> — Specialist degree (equivalent to Master's), Economic Security (2024)</li>
-    <li>Course: «Translator in Professional Communication» (English)</li>
-    <li>Russian — native · English — B2 (written), B1 (spoken)</li>
-  </ul>
-</main>
+  <div class="cols">
+    <main>
+      <section>
+        <h2>Profile</h2>
+        <p class="lead"><b>Technical Support Specialist</b> with first-line (Tier 1) experience at Kontur and <b>5+ years as Deputy Director</b> of a Vkusno — i tochka restaurant (formerly McDonald's; team of 80). Combine user-facing support with a solid technical base: Linux, servers, networking and automation.</p>
+        <div class="block"><ul>
+          <li><b>Support:</b> Tier 1 and <b>Service Desk</b> (chat, phone, email), resolving routine and complex issues, POS systems; PC diagnostics down to component level, remote assistance</li>
+          <li><b>Linux &amp; servers:</b> deploy and maintain <b>Linux servers</b> (Ubuntu): Docker, nginx, SSH; home server and NAS</li>
+          <li><b>Networking &amp; VPN:</b> <b>cascaded VPN servers</b> (WireGuard, VLESS, 3x-ui), iptables and ports, domains and DNS, basic connectivity troubleshooting</li>
+          <li><b>AI &amp; automation:</b> build <b>my own applications</b> and automate routine work <b>with AI tools</b> (Claude Code, Cursor), run local LLMs; SQL, Python, APIs</li>
+          <li><b>Results:</b> passed every audit in the last year <b>on the first attempt</b>, new-hire training improvements adopted by headquarters</li>
+        </ul></div>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <ul>
+          <li><b>PC Remote:</b> control a home PC from a phone. Android app (Kotlin, Jetpack Compose) and Windows agent (C#, .NET 8): Wake-on-LAN, load and temperature monitoring, power control, two-way file transfer and shared clipboard. <b>Smart assistant</b> handles text and voice commands via a local LLM. <b>Original design:</b> a character with artwork generated and animated locally (ComfyUI); a separate pose for each PC state (8 states): sleeping, idle, working, overheating, etc.</li>
+          <li><b>Stepper:</b> Android step tracker (Kotlin, Health Connect API) with manual hourly step entry and distance and calorie calculation</li>
+          <li><b>Local AI:</b> local LLMs (Ollama, Pinokio, Local API); Claude Code and Hermes Agent running on local models; work in Cursor</li>
+          <li><b>Home lab:</b> Linux server and NAS (Samba); cascade of VPN servers (3x-ui, WireGuard, VLESS, iptables, nginx)</li>
+          <li><b>This CV website</b> on GitHub Pages (basic HTML)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+        <div class="job">
+          <div class="job-head"><h3>Kontur (B2B SaaS)</h3><span class="when">June 2025 — Nov. 2025 · 6 months</span></div>
+          <p class="sub">Tier 1 Technical Support Specialist · chat, phone, email</p>
+          <ul>
+            <li>Advised users on <b>POS systems</b> across three channels: chat, phone, email</li>
+            <li>Diagnosed and resolved technical issues at Tier 1 (<b>troubleshooting</b>)</li>
+            <li>Handled tickets in a <b>Service Desk</b> from logging to resolution</li>
+            <li>Used the <b>knowledge base</b> (FAQ) to find solutions and explained them to users in plain language</li>
+          </ul>
+        </div>
+        <div class="job">
+          <div class="job-head"><h3>Vkusno — i tochka (formerly McDonald's)</h3><span class="when">July 2019 — Feb. 2025 · 5 years 8 months</span></div>
+          <p class="sub">Deputy Director for General Affairs · Moscow</p>
+          <ul>
+            <li><b>Automated in Excel (Power Query)</b> bonus calculation and per-employee data import from QSRAnalyze, in line with Russian labour law and individual allowances (previously manual)</li>
+            <li><b>Automated</b> shift staffing-demand calculation and position allocation; scheduling for a team of 80</li>
+            <li>HR onboarding in HR Oracle, supplier invoices in Diadoc, contracts and invoices in 1C</li>
+            <li>Proposed improvements to new-hire training, adopted by headquarters</li>
+            <li>Reduced 90-day turnover by <b>28%</b> (2024) and overall turnover by 17% vs. 2023</li>
+            <li>Monthly guest CSAT <b>89%</b> or higher</li>
+            <li>Exceeded the revenue plan by <b>5–10%</b> while cutting staff hours by about 10%</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <aside class="side">
+      <section>
+        <h2>Skills</h2>
+        <div class="sk"><b>Support</b><div class="tags"><span>Service Desk</span><span>Troubleshooting</span><span>POS systems</span><span>Chat, phone, email</span><span>AnyDesk, TeamViewer, Radmin</span></div></div>
+        <div class="sk"><b>Linux (Ubuntu 22.04, 24.04)</b><div class="tags"><span>Docker</span><span>nginx</span><span>SSH</span><span>iptables</span><span>Domains &amp; subdomains</span></div></div>
+        <div class="sk"><b>Networking &amp; VPN</b><div class="tags"><span>WireGuard</span><span>VLESS (3x-ui)</span><span>DNS</span><span>Ports</span><span>Home server</span><span>NAS (Samba)</span></div></div>
+        <div class="sk"><b>AI</b><div class="tags"><span>Claude Code</span><span>Cursor</span><span>Local LLMs (Ollama, Local API)</span><span>Prompt engineering</span></div></div>
+        <div class="sk"><b>SQL &amp; code</b><div class="tags"><span>SQLite, PostgreSQL</span><span>JOINs, aggregates, CSV</span><span>Python</span><span>APIs</span><span>HTML, XML</span></div></div>
+        <div class="sk"><b>Windows</b><div class="tags"><span>Installation &amp; setup</span><span>Drivers</span><span>System &amp; data recovery</span><span>PowerShell</span></div></div>
+        <div class="sk"><b>Office &amp; business systems</b><div class="tags"><span>Excel (Power Query)</span><span>Google Sheets</span><span>Word</span><span>Diadoc</span><span>HR Oracle</span><span>1C</span><span>Bitrix24</span></div></div>
+      </section>
+      <section>
+        <h2>Languages</h2>
+        <p>Russian — native<br>English — B2 (written), B1 (spoken)</p>
+      </section>
+      <section>
+        <h2>Education</h2>
+        <p><b>Udmurt State Agrarian University</b>, Specialist degree (equivalent to Master's), 2024<br>Economic Security</p>
+        <p>Course: «Translator in Professional Communication» (English)</p>
+      </section>
+      <section>
+        <h2>Soft Skills</h2>
+        <p>Analytical thinking · fast research and application of information · handling large data volumes</p>
+      </section>
+    </aside>
+  </div>
+</div>
 </body>
 </html>

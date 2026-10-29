@@ -3,96 +3,169 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Савва Зырянов — цифровые системы и автоматизация</title>
-<meta name="description" content="Операционный менеджер, переходящий в цифровые системы, техническую поддержку и автоматизацию. Готов к удалённой работе по всему миру.">
+<title>Савва Зырянов — специалист техподдержки · Linux · автоматизация</title>
+<meta name="description" content="Специалист технической поддержки: первая линия, POS-системы, Windows, Linux, ИИ-инструменты. Готов к удалённой работе.">
 <style>
-  :root { --bg:#fff; --fg:#1d2430; --muted:#5b6574; --line:#e3e7ee; --accent:#1f5fbf; --card:#f6f8fb; }
+  :root { --bg:#f4f6fa; --paper:#fff; --fg:#1d2430; --muted:#5b6574; --line:#e3e7ee; --accent:#1f5fbf; --soft:#eaf1fc; }
   @media (prefers-color-scheme: dark) {
-    :root { --bg:#12161c; --fg:#e8ecf2; --muted:#9aa5b5; --line:#262d38; --accent:#6ea6ff; --card:#1a2029; }
+    :root { --bg:#0e1217; --paper:#161b22; --fg:#e8ecf2; --muted:#9aa5b5; --line:#262d38; --accent:#6ea6ff; --soft:#1b2636; }
   }
   * { box-sizing:border-box; }
   body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
-  main { max-width:760px; margin:0 auto; padding:48px 16px 64px; }
-  h1 { font-size:2rem; margin:0 0 4px; }
-  .role { color:var(--accent); font-weight:600; margin:0 0 12px; }
-  .meta { color:var(--muted); margin:0 0 8px; }
-  .meta a { color:var(--accent); text-decoration:none; }
-  .meta a:hover { text-decoration:underline; }
-  h2 { font-size:1.05rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:6px; margin:36px 0 14px; }
-  h3 { font-size:1.05rem; margin:18px 0 2px; }
-  .when { color:var(--muted); font-size:.92rem; margin:0 0 6px; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .wrap { max-width:1040px; margin:0 auto; padding:40px 16px 64px; }
+
+  header { background:var(--paper); border:1px solid var(--line); border-top:4px solid var(--accent); border-radius:14px; padding:28px 32px; }
+  h1 { font-size:2.1rem; line-height:1.2; margin:0; letter-spacing:.01em; }
+  .role { color:var(--accent); font-weight:700; font-size:1.1rem; margin:6px 0 10px; text-transform:uppercase; letter-spacing:.04em; }
+  .meta { color:var(--muted); margin:0; }
+  .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; align-items:center; }
+  .btn { padding:9px 18px; border-radius:8px; background:var(--accent); color:#fff; font-weight:600; }
+  .btn:hover { text-decoration:none; opacity:.9; }
+  .chip { padding:8px 14px; border-radius:8px; border:1px solid var(--line); color:var(--fg); }
+  .chip:hover { border-color:var(--accent); text-decoration:none; }
+
+  .facts { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:16px 0; }
+  .fact { background:var(--paper); border:1px solid var(--line); border-radius:12px; padding:14px 16px; }
+  .fact b { display:block; font-size:1.6rem; color:var(--accent); line-height:1.2; }
+  .fact span { color:var(--muted); font-size:.9rem; }
+
+  .cols { display:grid; grid-template-columns:1fr 320px; gap:16px; align-items:start; }
+  section { background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:22px 26px; margin-bottom:16px; }
+  h2 { font-size:1.05rem; color:var(--accent); margin:0 0 14px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+  p { margin:0 0 10px; }
+  .lead b { color:var(--fg); }
+  .block { border-left:3px solid var(--accent); background:var(--soft); border-radius:0 10px 10px 0; padding:10px 14px; margin:10px 0 0; }
+  .block h4 { margin:0 0 4px; font-size:1rem; color:var(--accent); }
+  .block ul { margin:0; padding-left:18px; }
+  .block li { margin:4px 0; }
+  .block li::marker { color:var(--accent); }
+
+  .job { position:relative; padding-left:20px; margin-bottom:18px; }
+  .job:last-child { margin-bottom:0; }
+  .job::before { content:""; position:absolute; left:0; top:8px; width:9px; height:9px; border-radius:50%; background:var(--accent); }
+  .job::after { content:""; position:absolute; left:4px; top:22px; bottom:-14px; width:1px; background:var(--line); }
+  .job:last-child::after { display:none; }
+  .job-head { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  h3 { font-size:1.08rem; margin:0; }
+  .when { color:var(--muted); font-size:.92rem; white-space:nowrap; }
+  .sub { color:var(--muted); font-style:italic; font-size:.95rem; margin:0 0 6px; }
   ul { margin:6px 0 0; padding-left:20px; }
   li { margin:3px 0; }
-  .grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:10px 14px; }
-  .card b { display:block; font-size:.9rem; color:var(--muted); margin-bottom:2px; }
-  .btn { display:inline-block; margin-top:14px; padding:8px 16px; border-radius:8px; background:var(--accent); color:#fff; text-decoration:none; font-weight:600; }
-  .lang { margin-left:12px; color:var(--accent); text-decoration:none; }
-  ul.summary { list-style:none; padding:0; margin:12px 0 0; }
-  ul.summary li { margin:0 0 8px; padding:10px 14px; background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:8px; }
-  @media (max-width:560px) { .grid { grid-template-columns:1fr; } h1 { font-size:1.6rem; } }
+
+  .sk { margin-bottom:12px; }
+  .sk:last-child { margin-bottom:0; }
+  .sk b { display:block; font-size:.9rem; margin-bottom:5px; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; }
+  .tags span { background:var(--soft); color:var(--fg); border-radius:6px; padding:2px 9px; font-size:.86rem; }
+  .side p { font-size:.95rem; }
+
+  @media (max-width:860px) { .cols { grid-template-columns:1fr; } .facts { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px) { header, section { padding:18px; } h1 { font-size:1.6rem; } }
 </style>
 </head>
 <body>
-<main>
-  <h1>Зырянов Савва Денисович</h1>
-  <p class="role">Специалист по цифровым системам и автоматизации</p>
-  <p class="meta">Готов к удалённой работе по всему миру · полная или частичная занятость · готов к переезду и редким командировкам</p>
-  <p class="meta"><a href="mailto:savchik125@gmail.com">savchik125@gmail.com</a> · <a href="https://t.me/Crispln">t.me/Crispln</a></p>
-  <a class="btn" href="CV_Zyrianov_Savva_RU.pdf">Скачать резюме (PDF)</a> <a class="lang" href="en.html">English version</a>
+<div class="wrap">
+  <header>
+    <h1>Зырянов Савва Денисович</h1>
+    <p class="role">Специалист техподдержки · Linux · автоматизация</p>
+    <p class="meta">Готов к удалённой работе по всему миру · полная или частичная занятость · готов к переезду и редким командировкам</p>
+    <div class="actions">
+      <a class="btn" href="CV_Zyrianov_Savva_RU.pdf">Скачать резюме (PDF)</a>
+      <a class="chip" href="mailto:savchik125@gmail.com">savchik125@gmail.com</a>
+      <a class="chip" href="https://t.me/Crispln">Telegram</a>
+      <a class="chip" href="en.html">English version</a>
+    </div>
+  </header>
 
-  <h2>О себе</h2>
-  <p>Руководитель операционных процессов, переходящий в цифровые системы: более 5 лет вёл направления «Люди», «Производство» и «Сервис» в ресторане «Вкусно — и точка» (заместитель директора по общим вопросам, штат 80 человек).</p>
-  <ul class="summary">
-    <li><b>Результаты.</b> Автоматизировал расчёт премий и расстановку персонала; снизил текучесть в первые 90 дней на 28%; обеспечил перевыполнение плана на 5–10% при сокращении часов персонала на ~10%; все аудиты прошёл с первого раза; ежемесячный CSAT по гостям 89%+.</li>
-    <li><b>Системы и поддержка.</b> Работаю в Excel, Google Sheets, Bitrix24, Диадок, HR Oracle, 1С; опыт первой линии техподдержки, в т.ч. POS-систем (чат, телефон, e-mail).</li>
-    <li><b>ИИ, серверы и сети.</b> Опыт работы с ИИ-инструментами (Claude Code, Cursor, LLM-ассистенты), локальным генеративным ИИ и LLM (Ollama, Local API), базовый промпт-инжиниринг; Linux-серверы (Docker, SSH) и настройка через панели; базовая настройка сетевой инфраструктуры: локальная сеть, домашний сервер, NAS, Samba и каскад из нескольких серверов под VPN (3x-ui, WireGuard, VLESS, iptables, nginx); базовый SQL (PostgreSQL, SQLite); базовый HTML и XML.</li>
-    <li><b>Цель.</b> Удалённая работа в сфере цифровых систем, автоматизации, данных и ИИ.</li>
-  </ul>
-
-  <h2>Опыт работы</h2>
-  <h3>Контур</h3>
-  <p class="when">Специалист первой линии технической поддержки · чаты, телефон, e-mail · июнь 2025 — нояб. 2025 (6 мес.)</p>
-  <ul>
-    <li>Поддерживал пользователей в работе с POS-системами</li>
-    <li>Консультировал пользователей и обрабатывал обращения по трём каналам: чат, телефон, e-mail</li>
-    <li>Диагностировал и решал технические вопросы на первой линии (troubleshooting)</li>
-  </ul>
-
-  <h3>Вкусно — и точка</h3>
-  <p class="when">Заместитель директора по общим вопросам · Москва · июль 2019 — февр. 2025 (5 лет 8 мес.)</p>
-  <ul>
-    <li>Обеспечил перевыполнение плана по выручке на 5–10% при сокращении часов персонала примерно на 10% за счёт оптимизации обязанностей</li>
-    <li>Снизил текучесть в первые 90 дней на 28% (2024 г.), общую — на 17% к 2023 г.</li>
-    <li>Net sales 19–23 млн ₽ в месяц; рост медианной чистой прибыли с 2,2 до 2,8 млн ₽ в месяц на фоне обновления оборудования и ремонтов</li>
-    <li>Автоматизировал в Excel (Power Query) расчёт премий и загрузку данных по каждому сотруднику из QSRAnalyze с учётом ТК РФ и индивидуальных надбавок (ранее считали вручную)</li>
-    <li>Автоматизировал расчёт потребности в персонале по сменам и расстановку по позициям; график на штат 80 человек</li>
-    <li>Недельное планирование количества заказов и среднего чека с точностью 87%</li>
-    <li>Предложил улучшения системы обучения новых сотрудников — приняты на централизованном уровне</li>
-    <li>Кадровое оформление в HR Oracle, накладные на поставки в Диадок, договоры и счета в 1С</li>
-    <li>Прошёл все проверки и аудиты (безопасность пищи, Роспотребнадзор, пожарная безопасность, кассовая комната, кадры, химия) с первого раза, результат 85%+</li>
-    <li>Ежемесячный CSAT по гостям 89% и выше</li>
-  </ul>
-
-  <h2>Навыки</h2>
-  <div class="grid">
-    <div class="card"><b>Офис</b>Excel (Power Query), Google Sheets, Word</div>
-    <div class="card"><b>Бизнес-системы</b>Диадок, HR Oracle, 1С; CRM Bitrix24</div>
-    <div class="card"><b>Поддержка</b>POS-системы: поддержка пользователей; troubleshooting; Windows: установка, настройка, диагностика, восстановление системы и данных, PowerShell</div>
-    <div class="card"><b>ИИ</b>Claude Code, Cursor, LLM-ассистенты, локальный генеративный ИИ и LLM (Ollama, Local API); основы промпт-инжиниринга</div>
-    <div class="card"><b>Linux (Ubuntu 22.04, 24.04)</b>Docker, nginx, iptables, WireGuard, VLESS, SSH, домены и поддомены</div>
-    <div class="card"><b>Инфраструктура</b>Домашний сервер, NAS, Samba, каскад из нескольких серверов под VPN; основы сетевой инфраструктуры</div>
-    <div class="card"><b>Веб и код</b>Базовый HTML, XML, Python; работа с API</div>
-    <div class="card"><b>SQL</b>SQLite, PostgreSQL: JOIN, SUM, AVG, MIN, MAX, выгрузка в CSV</div>
-    <div class="card"><b>Личные качества</b>Аналитическое мышление; быстрый поиск и применение информации; работа с большими объёмами данных</div>
+  <div class="facts">
+    <div class="fact"><b>6 мес.</b><span>первая линия техподдержки</span></div>
+    <div class="fact"><b>5+ лет</b><span>заместитель директора, штат 80 человек</span></div>
+    <div class="fact"><b>89%+</b><span>CSAT клиентов</span></div>
+    <div class="fact"><b>+5–10%</b><span>перевыполнение плана</span></div>
   </div>
 
-  <h2>Образование, курсы, языки</h2>
-  <ul>
-    <li><b>Удмуртский государственный аграрный университет (УдГАУ)</b>, специалитет, 2024 — экономическая безопасность</li>
-    <li>Курс: «Переводчик в сфере профессиональной коммуникации» — английский язык, в период обучения</li>
-    <li>Русский — родной · английский — B2 (письмо), B1 (речь)</li>
-  </ul>
-</main>
+  <div class="cols">
+    <main>
+      <section>
+        <h2>О себе</h2>
+        <p class="lead"><b>Специалист технической поддержки</b> с опытом первой линии в «Контуре» и <b>5+ годами работы заместителем директора</b> ресторана «Вкусно — и точка» (штат 80 человек). Совмещаю работу с пользователями и техническую базу: Linux, серверы, сети и автоматизацию.</p>
+        <div class="block"><ul>
+          <li><b>Поддержка:</b> первая линия и <b>Service Desk</b> (чат, телефон, e-mail), решение типовых и сложных вопросов, POS-системы; диагностика ПК вплоть до комплектующих, удалённая помощь</li>
+          <li><b>Linux и серверы:</b> поднимаю и обслуживаю <b>Linux-серверы</b> (Ubuntu): Docker, nginx, SSH; домашний сервер и NAS</li>
+          <li><b>Сети и VPN:</b> <b>каскад VPN-серверов</b> (WireGuard, VLESS, 3x-ui), iptables и порты, домены и DNS, базовая диагностика подключения</li>
+          <li><b>ИИ и автоматизация:</b> создаю <b>собственные приложения</b> и автоматизирую рутину <b>с помощью ИИ-инструментов</b> (Claude Code, Cursor), запускаю локальные LLM; SQL, Python, API</li>
+          <li><b>Результаты:</b> все аудиты последнего года <b>с первого раза</b>, предложения по обучению новичков приняты на уровне сети</li>
+        </ul></div>
+      </section>
+
+      <section>
+        <h2>Проекты</h2>
+        <ul>
+          <li><b>PC Remote:</b> управление ПК с телефона. Android-приложение (Kotlin, Jetpack Compose) и агент для Windows (C#, .NET 8): включение по сети, нагрузка и температура, питание, двусторонняя передача файлов и общий буфер обмена. <b>Умный ассистент</b> понимает команды текстом и голосом через локальную LLM. <b>Собственный дизайн:</b> героиня, арты созданы и анимированы локально (ComfyUI); для каждого состояния ПК своя поза (8 состояний): спит, простаивает, работает, греется и т. д.</li>
+          <li><b>Stepper:</b> Android-трекер шагов (Kotlin, Health Connect API) с ручным добавлением шагов по часам и расчётом дистанции и калорий</li>
+          <li><b>Локальный ИИ:</b> локальные LLM (Ollama, Pinokio, Local API); агенты Claude Code и Hermes Agent на локальных моделях, работа в Cursor</li>
+          <li><b>Домашняя лаборатория:</b> Linux-сервер и NAS (Samba); каскад из нескольких серверов под VPN (3x-ui, WireGuard, VLESS, iptables, nginx)</li>
+          <li><b>Этот сайт-резюме</b> на GitHub Pages (базовый HTML)</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Опыт работы</h2>
+        <div class="job">
+          <div class="job-head"><h3>Контур</h3><span class="when">июнь 2025 — нояб. 2025 · 6 мес.</span></div>
+          <p class="sub">Специалист первой линии технической поддержки · чаты, телефон, e-mail</p>
+          <ul>
+            <li>Консультировал пользователей по работе с <b>POS-системами</b> по трём каналам: чат, телефон, e-mail</li>
+            <li>Диагностировал и решал технические проблемы на первой линии (<b>troubleshooting</b>)</li>
+            <li>Вёл обращения в <b>Service Desk</b> от регистрации до решения</li>
+            <li>Находил решения в <b>базе знаний</b> (FAQ) и объяснял их пользователям простым языком</li>
+          </ul>
+        </div>
+        <div class="job">
+          <div class="job-head"><h3>Вкусно — и точка</h3><span class="when">июль 2019 — февр. 2025 · 5 лет 8 мес.</span></div>
+          <p class="sub">Заместитель директора по общим вопросам · Москва</p>
+          <ul>
+            <li><b>Автоматизировал в Excel (Power Query)</b> расчёт премий и загрузку данных по каждому сотруднику из QSRAnalyze с учётом ТК РФ и индивидуальных надбавок (ранее считали вручную)</li>
+            <li><b>Автоматизировал</b> расчёт потребности в персонале по сменам и расстановку по позициям; график на штат 80 человек</li>
+            <li>Кадровое оформление в HR Oracle, накладные на поставки в Диадок, договоры и счета в 1С</li>
+            <li>Предложил улучшения системы обучения новых сотрудников — приняты на централизованном уровне</li>
+            <li>Снизил текучесть в первые 90 дней на <b>28%</b> (2024 г.), общую — на 17% к 2023 г.</li>
+            <li>Ежемесячный CSAT по гостям <b>89%</b> и выше</li>
+            <li>Обеспечил перевыполнение плана по выручке на <b>5–10%</b> при сокращении часов персонала примерно на 10%</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    <aside class="side">
+      <section>
+        <h2>Навыки</h2>
+        <div class="sk"><b>Поддержка</b><div class="tags"><span>Service Desk</span><span>Troubleshooting</span><span>POS-системы</span><span>Чат, телефон, e-mail</span><span>AnyDesk, TeamViewer, Radmin</span></div></div>
+        <div class="sk"><b>Linux (Ubuntu 22.04, 24.04)</b><div class="tags"><span>Docker</span><span>nginx</span><span>SSH</span><span>iptables</span><span>Домены и поддомены</span></div></div>
+        <div class="sk"><b>Сети и VPN</b><div class="tags"><span>WireGuard</span><span>VLESS (3x-ui)</span><span>DNS</span><span>Порты</span><span>Домашний сервер</span><span>NAS (Samba)</span></div></div>
+        <div class="sk"><b>ИИ</b><div class="tags"><span>Claude Code</span><span>Cursor</span><span>Локальные LLM (Ollama, Local API)</span><span>Промпт-инжиниринг</span></div></div>
+        <div class="sk"><b>SQL и код</b><div class="tags"><span>SQLite, PostgreSQL</span><span>JOIN, агрегаты, CSV</span><span>Python</span><span>API</span><span>HTML, XML</span></div></div>
+        <div class="sk"><b>Windows</b><div class="tags"><span>Установка и настройка</span><span>Драйверы</span><span>Восстановление системы и данных</span><span>PowerShell</span></div></div>
+        <div class="sk"><b>Офис и бизнес-системы</b><div class="tags"><span>Excel (Power Query)</span><span>Google Sheets</span><span>Word</span><span>Диадок</span><span>HR Oracle</span><span>1С</span><span>Bitrix24</span></div></div>
+      </section>
+      <section>
+        <h2>Языки</h2>
+        <p>Русский — родной<br>Английский — B2 (письмо), B1 (речь)</p>
+      </section>
+      <section>
+        <h2>Образование</h2>
+        <p><b>УдГАУ</b>, специалитет, 2024<br>Экономическая безопасность</p>
+        <p>Курс «Переводчик в сфере профессиональной коммуникации» (английский)</p>
+      </section>
+      <section>
+        <h2>Личные качества</h2>
+        <p>Аналитическое мышление · быстрый поиск и применение информации · работа с большими объёмами данных</p>
+      </section>
+    </aside>
+  </div>
+</div>
 </body>
 </html>
