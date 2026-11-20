@@ -83,7 +83,17 @@
   .tags span { background:var(--soft); color:var(--fg); border-radius:6px; padding:3px 10px; font-size:.9rem; }
   .side p { font-size:.95rem; }
 
-  @media (max-width:860px) { .cols { grid-template-columns:1fr; } .facts { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:860px) {
+    .cols { display:flex; flex-direction:column; gap:0; }
+    main, .side { display:contents; }
+    main > section:nth-of-type(1) { order:1; }
+    main > section:nth-of-type(2) { order:2; }
+    .side > section:nth-of-type(1) { order:3; }
+    main > section:nth-of-type(3) { order:4; }
+    .side > section:nth-of-type(2) { order:5; }
+    .side > section:nth-of-type(3) { order:6; }
+    .facts { grid-template-columns:repeat(2,1fr); }
+  }
   @media (max-width:520px) {
     header, section { padding:18px; } h1 { font-size:1.6rem; }
     .meta { font-size:.88rem; line-height:1.45; }
@@ -125,7 +135,7 @@
   </header>
 
   <div class="facts">
-    <div class="fact"><b>−28%</b><span>90-day staff turnover (2024)</span></div>
+    <div class="fact"><b>−28%</b><span>90-day staff turnover</span></div>
     <div class="fact"><b>5+ years</b><span>Deputy Restaurant Director, team of 80</span></div>
     <div class="fact"><b>89%+</b><span>guest CSAT (restaurant)</span></div>
     <div class="fact"><b>≈40 / 50</b><span>calls / chats per shift, Kontur</span></div>
@@ -135,10 +145,11 @@
     <main>
       <section>
         <h2>Profile</h2>
-        <p class="lead"><b>Technical Support Specialist</b> focused on Linux and automation. At Kontur I supported POS system users and worked Service Desk tickets; before that, <b>5+ years as Deputy Restaurant Director</b> at Vkusno — i tochka (formerly McDonald's) with a team of 80.</p>
+        <p class="lead"><b>Technical Support Specialist</b> focused on Linux and automation. At Kontur I handled POS system tickets in Service Desk; before that I spent <b>over five years as Deputy Restaurant Director</b> at Vkusno — i tochka (formerly McDonald's), leading a team of 80. Growing from support toward Linux administration and DevOps.</p>
         <div class="block"><ul>
           <li><b>Linux &amp; infrastructure:</b> my own Ubuntu servers, NAS, Docker, nginx, SSH, <b>multi-hop VPN</b> (WireGuard, VLESS), iptables, domains and DNS. I set it up and fix it myself.</li>
           <li><b>Support &amp; Windows:</b> <b>Service Desk</b>, remote assistance (AnyDesk, TeamViewer, Radmin), PC diagnostics. Windows: installation and configuration, PowerShell. SQL (SQLite, basic PostgreSQL), 1C and Python at a basic level.</li>
+          <li><b>Networking:</b> I configure routers and servers: routing, DNS, DHCP, VPN tunnels.</li>
           <li><b>Automation &amp; projects:</b> I build my own apps and automate routine work with <b>AI tools</b> (Claude Code, Cursor, local LLMs): PC Remote and Stepper.</li>
         </ul></div>
       </section>
@@ -147,8 +158,10 @@
         <h2>Projects</h2>
         <ul>
           <li><b>PC Remote:</b> control a home PC from a phone. <b>Android app</b> (Kotlin, Jetpack Compose) and <b>Windows agent</b> (C#, .NET 8); AI assistant running on a local LLM, custom animated artwork (ComfyUI)</li>
-          <li><b>Stepper:</b> Android step tracker (Kotlin, Health Connect API) with manual hourly step entry and distance and calorie calculation</li>
-          <li><b>Home lab:</b> Linux server and NAS (Samba); multi-hop VPN servers (3x-ui, WireGuard, VLESS, iptables, nginx)</li>
+          <li><b>Stepper:</b> Android step tracker (Kotlin, Health Connect API) with manual hourly step entry and distance and calorie calculation; data syncs to Google Fit and Samsung Health. Tested by hand on emulators and my phone before each release</li>
+          <li><b>Servers &amp; network:</b> Linux servers and NAS (Samba); multi-hop VPN servers (3x-ui, WireGuard, VLESS, iptables, nginx)</li>
+          <li><b>Learning platform:</b> I am building my own platform for administration, Linux systems and DevOps: lessons with hands-on server practice, ticket-style work scenarios, checkpoint tests and mini-interviews</li>
+          <li><b>Guide "Working with AI":</b> about 25 chapters on prompts, MCP, subagents, git and security, written with Claude</li>
         </ul>
       </section>
 
@@ -176,7 +189,7 @@
           <ul>
             <li>Scheduled staff, assigned positions and onboarded new hires for a <b>team of 80</b>; restaurant net sales RUB 19–23 million per month</li>
             <li>Exceeded revenue targets by <b>5–10%</b> while reducing labor hours by ~10%</li>
-            <li>Reduced 90-day staff turnover by <b>28%</b> (2024) and overall turnover by 17% vs. 2023; passed every audit in the last year on the first attempt (85%+)</li>
+            <li>Reduced 90-day staff turnover by <b>28%</b> and overall turnover by 17% vs. 2023; passed every audit in the last year on the first attempt (85%+)</li>
             <li>Guest CSAT <b>89%+</b>; proposed new-hire training improvements, adopted by headquarters</li>
             <li><b>Automated</b> bonus calculation for 80+ employees (data import from QSRAnalyze in Excel <b>Power Query</b>, in line with Russian labour law and individual allowances) and shift staffing-demand calculation, previously manual</li>
             <li>HR onboarding in HR Oracle, supplier invoices in Diadoc, contracts and invoices in 1C</li>
@@ -190,8 +203,8 @@
         <h2>Skills</h2>
         <div class="sk"><b>Support</b><div class="tags"><span>Service Desk</span><span>Troubleshooting</span><span>POS systems</span><span>Chat, phone, email</span><span>AnyDesk, TeamViewer, Radmin</span></div></div>
         <div class="sk"><b>Linux (Ubuntu 22.04, 24.04)</b><div class="tags"><span>Docker</span><span>nginx</span><span>SSH</span><span>iptables</span><span>Domains &amp; subdomains</span></div></div>
-        <div class="sk"><b>Networking &amp; VPN</b><div class="tags"><span>WireGuard</span><span>VLESS (3x-ui)</span><span>DNS</span><span>Ports</span><span>NAS (Samba)</span></div></div>
-        <div class="sk"><b>AI</b><div class="tags"><span>Claude Code</span><span>Cursor</span><span>Local LLMs (Ollama, Local API)</span><span>Prompt engineering</span></div></div>
+        <div class="sk"><b>Networking &amp; VPN</b><div class="tags"><span>WireGuard</span><span>VLESS (3x-ui)</span><span>DNS</span><span>DHCP</span><span>Routing</span><span>Ports</span><span>NAS (Samba)</span></div></div>
+        <div class="sk"><b>AI</b><div class="tags"><span>Claude Code</span><span>Cursor</span><span>Local LLMs (Ollama, Local API)</span><span>Prompt engineering</span><span>AI agents</span></div></div>
         <div class="sk"><b>SQL &amp; code</b><div class="tags"><span>SQLite, basic PostgreSQL</span><span>JOINs, aggregates, CSV</span><span>Python</span><span>APIs</span><span>HTML, XML</span></div></div>
         <div class="sk"><b>Windows</b><div class="tags"><span>Installation &amp; setup</span><span>Drivers</span><span>System &amp; data recovery</span><span>PowerShell</span></div></div>
         <div class="sk"><b>Office &amp; business systems</b><div class="tags"><span>Excel (Power Query)</span><span>Google Sheets</span><span>Word</span><span>Diadoc</span><span>HR Oracle</span><span>1C</span><span>Bitrix24</span></div></div>

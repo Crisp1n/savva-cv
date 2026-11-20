@@ -83,7 +83,17 @@
   .tags span { background:var(--soft); color:var(--fg); border-radius:6px; padding:3px 10px; font-size:.9rem; }
   .side p { font-size:.95rem; }
 
-  @media (max-width:860px) { .cols { grid-template-columns:1fr; } .facts { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:860px) {
+    .cols { display:flex; flex-direction:column; gap:0; }
+    main, .side { display:contents; }
+    main > section:nth-of-type(1) { order:1; }
+    main > section:nth-of-type(2) { order:2; }
+    .side > section:nth-of-type(1) { order:3; }
+    main > section:nth-of-type(3) { order:4; }
+    .side > section:nth-of-type(2) { order:5; }
+    .side > section:nth-of-type(3) { order:6; }
+    .facts { grid-template-columns:repeat(2,1fr); }
+  }
   @media (max-width:520px) {
     header, section { padding:18px; } h1 { font-size:1.6rem; }
     .meta { font-size:.88rem; line-height:1.45; }
@@ -125,7 +135,7 @@
   </header>
 
   <div class="facts">
-    <div class="fact"><b>−28%</b><span>текучесть в первые 90 дней (2024)</span></div>
+    <div class="fact"><b>−28%</b><span>текучесть в первые 90 дней</span></div>
     <div class="fact"><b>5+ лет</b><span>заместитель директора, штат 80 человек</span></div>
     <div class="fact"><b>89%+</b><span>CSAT гостей ресторана</span></div>
     <div class="fact"><b>≈40 / 50</b><span>звонков / чатов за смену, Контур</span></div>
@@ -135,10 +145,11 @@
     <main>
       <section>
         <h2>О себе</h2>
-        <p class="lead"><b>Специалист технической поддержки</b> с упором на Linux и автоматизацию. Техническая поддержка в «Контуре»: POS-системы, Service Desk; до этого <b>5+ лет заместителем директора</b> «Вкусно — и точка» на штат 80 человек.</p>
+        <p class="lead"><b>Специалист технической поддержки</b> с упором на Linux и автоматизацию. В «Контуре» вёл обращения по POS-системам в Service Desk; до этого <b>больше пяти лет был заместителем директора</b> «Вкусно — и точка» и руководил командой из 80 человек. Расту от поддержки к администрированию и DevOps.</p>
         <div class="block"><ul>
           <li><b>Linux и инфраструктура:</b> свои серверы на Ubuntu, NAS, Docker, nginx, SSH, <b>каскад VPN</b> (WireGuard, VLESS), iptables, домены и DNS. Настраиваю и чиню сам.</li>
           <li><b>Поддержка и Windows:</b> <b>Service Desk</b>, удалённая помощь (AnyDesk, TeamViewer, Radmin), диагностика ПК. Windows: установка и настройка, PowerShell. SQL (SQLite, базово PostgreSQL), 1С и Python базово.</li>
+          <li><b>Сети:</b> настраиваю роутеры и серверы: маршрутизация, DNS, DHCP, VPN-туннели.</li>
           <li><b>Автоматизация и проекты:</b> создаю собственные приложения и автоматизирую рутину с помощью <b>ИИ-инструментов</b> (Claude Code, Cursor, локальные LLM): PC Remote и Stepper.</li>
         </ul></div>
       </section>
@@ -147,8 +158,10 @@
         <h2>Проекты</h2>
         <ul>
           <li><b>PC Remote:</b> управление ПК с телефона. <b>Android-приложение</b> (Kotlin, Jetpack Compose) и <b>агент для Windows</b> (C#, .NET 8); ассистент на локальной LLM, свой анимированный дизайн (ComfyUI)</li>
-          <li><b>Stepper:</b> Android-трекер шагов (Kotlin, Health Connect API) с ручным добавлением шагов по часам и расчётом дистанции и калорий</li>
-          <li><b>Домашняя лаборатория:</b> Linux-сервер и NAS (Samba); каскад из нескольких серверов под VPN (3x-ui, WireGuard, VLESS, iptables, nginx)</li>
+          <li><b>Stepper:</b> Android-трекер шагов (Kotlin, Health Connect API) с ручным добавлением шагов по часам и расчётом дистанции и калорий; данные видны в Google Fit и Samsung Health. Перед релизом проверял вручную на эмуляторах и телефоне</li>
+          <li><b>Серверы и сети:</b> Linux-серверы и NAS (Samba); каскад из нескольких серверов под VPN (3x-ui, WireGuard, VLESS, iptables, nginx)</li>
+          <li><b>Учебная платформа:</b> собираю свою платформу по администрированию, Linux-системам и DevOps: уроки с практикой на серверах, рабочие ситуации в виде тикетов, проверочные работы и мини-собеседования</li>
+          <li><b>Учебник «Как работать с ИИ»:</b> около 25 глав про промпты, MCP, субагентов, git и безопасность, составил с помощью Claude</li>
         </ul>
       </section>
 
@@ -176,7 +189,7 @@
           <ul>
             <li>Графики, расстановка и адаптация новичков на <b>штат 80</b>, выручка ресторана 19–23 млн ₽ в месяц</li>
             <li>Перевыполнил план по выручке на <b>5–10%</b>, сократив часы персонала примерно на 10%</li>
-            <li>Снизил текучесть в первые 90 дней на <b>28%</b> (2024 г.), общую — на 17% к 2023 г.; все аудиты за последний год с первого раза (85%+)</li>
+            <li>Снизил текучесть в первые 90 дней на <b>28%</b>, общую — на 17% к 2023 г.; все аудиты за последний год с первого раза (85%+)</li>
             <li>CSAT по гостям <b>89%+</b>; предложения по обучению новичков приняты центральным офисом</li>
             <li><b>Автоматизировал</b> расчёт премий для 80+ человек (загрузка данных из QSRAnalyze в Excel <b>Power Query</b>, с учётом ТК РФ и индивидуальных надбавок) и потребность в персонале по сменам (ранее вручную)</li>
             <li>Кадровое оформление в HR Oracle, накладные на поставки в Диадок, договоры и счета в 1С</li>
@@ -191,8 +204,8 @@
         <h2>Навыки</h2>
         <div class="sk"><b>Поддержка</b><div class="tags"><span>Service Desk</span><span>Troubleshooting</span><span>POS-системы</span><span>Чат, телефон, e-mail</span><span>AnyDesk, TeamViewer, Radmin</span></div></div>
         <div class="sk"><b>Linux (Ubuntu 22.04, 24.04)</b><div class="tags"><span>Docker</span><span>nginx</span><span>SSH</span><span>iptables</span><span>Домены и поддомены</span></div></div>
-        <div class="sk"><b>Сети и VPN</b><div class="tags"><span>WireGuard</span><span>VLESS (3x-ui)</span><span>DNS</span><span>Порты</span><span>NAS (Samba)</span></div></div>
-        <div class="sk"><b>ИИ</b><div class="tags"><span>Claude Code</span><span>Cursor</span><span>Локальные LLM (Ollama, Local API)</span><span>Промпт-инжиниринг</span></div></div>
+        <div class="sk"><b>Сети и VPN</b><div class="tags"><span>WireGuard</span><span>VLESS (3x-ui)</span><span>DNS</span><span>DHCP</span><span>Маршрутизация</span><span>Порты</span><span>NAS (Samba)</span></div></div>
+        <div class="sk"><b>ИИ</b><div class="tags"><span>Claude Code</span><span>Cursor</span><span>Локальные LLM (Ollama, Local API)</span><span>Промпт-инжиниринг</span><span>ИИ-агенты</span></div></div>
         <div class="sk"><b>SQL и код</b><div class="tags"><span>SQLite, базово PostgreSQL</span><span>JOIN, агрегаты, CSV</span><span>Python</span><span>API</span><span>HTML, XML</span></div></div>
         <div class="sk"><b>Windows</b><div class="tags"><span>Установка и настройка</span><span>Драйверы</span><span>Восстановление системы и данных</span><span>PowerShell</span></div></div>
         <div class="sk"><b>Офис и бизнес-системы</b><div class="tags"><span>Excel (Power Query)</span><span>Google Sheets</span><span>Word</span><span>Диадок</span><span>HR Oracle</span><span>1С</span><span>Bitrix24</span></div></div>
